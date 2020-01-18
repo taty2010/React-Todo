@@ -14,6 +14,16 @@ const list = [
     task: 'Bake Cookies',
     id: 1528817084358,
     completed: false
+  },
+  {
+    task: 'Study',
+    id: 1528817085358,
+    completed: false
+  },
+  {
+    task: 'Exercise',
+    id: 1528817086358,
+    completed: false
   }
 ];
 
@@ -72,16 +82,25 @@ class App extends React.Component {
 
   render() {
     const Wrapper = styled.div`
-    background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
+      display: flex;
+      flex-flow: column;
+      justify-content: left;
+      align-items: center;
+      color: pink;
+      width: 90vw;
+      height: auto;
+      padding: 2% 0;
+    margin: 10vh auto;
+    background-color: rgba(79, 57, 77, 0.73);
+      h1{
+        padding: 4vh 0;
+        text-shadow: 4px 2px 3px #c734a0;
+}
+      }
     `;
     return (
       <Wrapper>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Welcome to your Todo App!</h1>
         <ToDoForm addNewItem={this.addNewItem} />
         <ToDoList clearItem={this.clearItem} addNewItem={this.addNewItem} togglePurchase={this.togglePurchase} toDo={this.state.toDoList}/>
       </Wrapper>

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 class ToDoForm extends React.Component {
 
@@ -19,6 +20,16 @@ class ToDoForm extends React.Component {
     };
 
     render(){
+        const Button = styled.button`
+            margin: 0 2vw;
+            background-color: purple;
+            border: none;
+            padding: 1vh;
+            color: #00ffe7;
+            text-shadow: 0 0 3px #d8fbf8;
+
+        `;
+
         return(
             <form onSubmit={this.handleSubmit}>
                 <input 
@@ -26,7 +37,7 @@ class ToDoForm extends React.Component {
                 value={this.state.newItem}
                 type='text' 
                 name='item'/>
-                <button>Add</button>
+                <Button>ADD ITEM</Button>
             </form>
         )
     }
