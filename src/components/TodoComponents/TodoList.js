@@ -17,6 +17,7 @@ const ToDoList = props =>{
                         togglePurchase={props.togglePurchase}
                     />
                 ))}
+                <button onClick={props.clearItem}>Clear Items</button>
         </div>
     )
 }

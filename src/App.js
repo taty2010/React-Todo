@@ -1,7 +1,8 @@
 import React from 'react';
 import ToDoList from './components/TodoComponents/TodoList';
 import ToDoForm from './components/TodoComponents/TodoForm'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import './components/TodoComponents/Todo.css';
 
 const list = [
   {
@@ -21,10 +22,15 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   
-
-    state = {
+  constructor(){
+    super();
+    this.state = {
       toDoList: list
-    }
+    };
+}
+    // state = {
+    //   toDoList: list
+    // }
 
   togglePurchase = id => {
     const newState = {
@@ -34,12 +40,13 @@ class App extends React.Component {
           return {
             ...item,
             completed: !item.completed
-          }
+          };
         }
         return item;
       })
     };
     this.setState(newState)
+    console.log(newState)
   }
 
   addNewItem = item => {
@@ -51,6 +58,16 @@ class App extends React.Component {
       ]
     };
     this.setState(newState);
+  }
+
+  clearItem = () => {
+    const newState = {
+      ...this.state,
+      toDoList: this.state.toDoList.filter(item =>{
+        return !item.completed
+      })
+    };
+    this.setState(newState)
   }
 
   render() {
@@ -66,7 +83,7 @@ class App extends React.Component {
       <Wrapper>
         <h2>Welcome to your Todo App!</h2>
         <ToDoForm addNewItem={this.addNewItem} />
-        <ToDoList addNewItem={this.addNewItem} togglePurchase={this.togglePurchase} toDo={this.state.toDoList}/>
+        <ToDoList clearItem={this.clearItem} addNewItem={this.addNewItem} togglePurchase={this.togglePurchase} toDo={this.state.toDoList}/>
       </Wrapper>
     );
   }

@@ -10,6 +10,11 @@ const ToDo = props =>{
     margin: 2%;
 `;
 
+    const Todo = styled.div`
+
+
+    `;
+
     const Card = styled.div`
         display: flex;
         justify-content: center;
@@ -17,12 +22,13 @@ const ToDo = props =>{
         width: 12vw;
         height: 5vh;
         margin: 2%;
+        text-decoration: none;
     `;
-
+    console.log(props)
     return(
         <Card
             onClick={event => props.togglePurchase(props.item.id)}
-            className={`item${props.item.purchased ? "purchased" : ""}`}>
+            className={`item ${props.item.completed ? "completed" : ""}`}>
             <p>{props.item.task}</p>
         </Card>
     )
